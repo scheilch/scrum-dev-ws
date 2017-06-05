@@ -1,6 +1,6 @@
 package cucumber.steps;
 
-import app.Calculator.ParkRechner;
+import parkRechner.ParkRechner;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -10,7 +10,6 @@ import java.time.Instant;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -34,7 +33,7 @@ public class ParkRechnerSteps {
         numMap.put("24 h", Instant.parse("2017-03-02T00:00:00Z"));
         numMap.put("1 day, 1h", Instant.parse("2017-03-02T01:00:00Z"));
         numMap.put("1 day, 3h", Instant.parse("2017-03-02T03:00:00Z"));
-        numMap.put("1 day, 6h", Instant.parse("2017-03-02T03:00:00Z"));
+        numMap.put("1 day, 6h", Instant.parse("2017-03-02T06:00:00Z"));
         numMap.put("6 days", Instant.parse("2017-03-07T00:00:00Z"));
         numMap.put("6 days, 6h", Instant.parse("2017-03-07T06:00:00Z"));
         numMap.put("7 days", Instant.parse("2017-03-08T00:00:00Z"));
