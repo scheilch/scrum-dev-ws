@@ -19,23 +19,8 @@ public class ParkRechner {
         newDate = newDate.minus(hours,ChronoUnit.HOURS);
         final long minutes = ChronoUnit.MINUTES.between(startDate, newDate);
 
-        long result;
+        int result = 2;
 
-        long priceWeeks = weeks * 60;
-        long priceDays = days * 10;
-        long priceHours = hours * 2;
-        if(minutes > 0){
-            priceHours += 2;
-        }
-        if(priceHours > 10){
-            priceHours = 10;
-        }
-        if(priceDays + priceHours > 60){
-            priceDays = 60;
-            priceHours = 0;
-        }
-        result = priceWeeks + priceDays + priceHours;
-
-        return (int) result;
+        return result;
     }
 }
