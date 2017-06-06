@@ -30,9 +30,19 @@ public class ParkRechner {
         final long minutes = ChronoUnit.MINUTES.between(startDate, newDate);
 
         long result;
-
         long priceWeeks = weeks * maxPriceWeek;
         long priceDays = days * maxPriceDay;
+        long priceHours = calculatePriceHours(maxPriceDay, hours, minutes);
+
+        if(priceDays + priceHours > maxPriceWeek){
+            priceDays = maxPriceWeek;
+            priceHours = 0;
+        }
+        result = priceWeeks + priceDays + priceHours;
+        return (int) result;
+    }
+
+    private long calculatePriceHours(int maxPriceDay, long hours, long minutes) {
         long priceHours = hours * PRICE_PER_HOUR;
         if(minutes > 0){
             priceHours += PRICE_PER_HOUR;
@@ -40,12 +50,6 @@ public class ParkRechner {
         if(priceHours > maxPriceDay){
             priceHours = maxPriceDay;
         }
-        if(priceDays + priceHours > maxPriceWeek){
-            priceDays = maxPriceWeek;
-            priceHours = 0;
-        }
-        result = priceWeeks + priceDays + priceHours;
-
-        return (int) result;
+        return priceHours;
     }
 }
